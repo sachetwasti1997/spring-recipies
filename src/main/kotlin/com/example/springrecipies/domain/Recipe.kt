@@ -25,5 +25,13 @@ class Recipe (
     var ingredients: MutableSet<Ingredient> = HashSet(),
 
     @Enumerated(value = EnumType.STRING)
-    var difficulty: Difficulty ?= null
+    var difficulty: Difficulty ?= null,
+
+    @ManyToMany
+    @JoinTable(
+        name = "recipe_category",
+        joinColumns = [JoinColumn(name = "recipe_id")],
+        inverseJoinColumns = [JoinColumn(name = "category_id")]
+    )
+    var categories: MutableSet<Category> ?= HashSet()
 )
