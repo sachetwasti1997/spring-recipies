@@ -14,6 +14,7 @@ class Recipe (
     var servings: Int ?= null,
     var source: String ?= null,
     var url: String ?= null,
+    @Lob
     var directions: String ?= null,
     @Lob
     var image: ByteArray ?= null,
@@ -34,4 +35,14 @@ class Recipe (
         inverseJoinColumns = [JoinColumn(name = "category_id")]
     )
     var categories: MutableSet<Category> ?= HashSet()
-)
+) {
+    fun setNotesRecipe(notes: Notes) {
+        this.notes = notes
+        notes.recipe = this
+    }
+
+    fun addIngredients(ingredient: Ingredient) {
+        ingredient.recipe = this
+        this.ingredients.add(ingredient)
+    }
+}
