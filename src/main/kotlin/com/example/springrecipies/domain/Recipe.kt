@@ -1,13 +1,6 @@
 package com.example.springrecipies.domain
 
-import jakarta.persistence.CascadeType
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.Lob
-import jakarta.persistence.OneToMany
-import jakarta.persistence.OneToOne
+import jakarta.persistence.*
 
 @Entity
 class Recipe (
@@ -29,5 +22,8 @@ class Recipe (
     var notes: Notes ?= null,
 
     @OneToMany(cascade = [CascadeType.ALL], mappedBy = "recipe")
-    var ingredients: MutableSet<Ingredient> = HashSet()
+    var ingredients: MutableSet<Ingredient> = HashSet(),
+
+    @Enumerated(value = EnumType.STRING)
+    var difficulty: Difficulty ?= null
 )
