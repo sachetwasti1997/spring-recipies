@@ -24,6 +24,8 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     runtimeOnly 'com.h2database:h2'
     runtimeOnly 'com.mysql:mysql-connector-j'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
@@ -34,6 +36,6 @@ tasks.withType(KotlinCompile) {
     }
 }
 
-tasks.named('test') {
+test {
     useJUnitPlatform()
 }
