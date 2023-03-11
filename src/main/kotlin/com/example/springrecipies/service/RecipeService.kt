@@ -6,4 +6,5 @@ import org.springframework.stereotype.Service
 
 interface RecipeService {
     fun findAll(): Set<Recipe>
+    fun getRecipeById(id: Long): Recipe?
 }
