@@ -1,9 +1,5 @@
 package com.sachet.springrecipies.bootstrap
 
-import com.example.springrecipies.domain.*
-import com.sachet.springrecipies.repository.CategoryRepository
-import com.sachet.springrecipies.repository.RecipeRepository
-import com.sachet.springrecipies.repository.UnitOfMeasureRepository
 import java.math.BigDecimal
 
 class FillDatabaseTable(

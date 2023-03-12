@@ -47,13 +47,5 @@ class RecipeControllerTest{
         verify(recipeService, times(1)).getRecipeById(1L)
     }
 
-    @Test
-    fun getByIdNotFound() {
-        given(recipeService.getRecipeById(1L))
-            .willAnswer{ com.sachet.springrecipies.exception.NotFoundException("Recipe with Id ${1L} Not Found") }
 
-        val result: ResponseEntity<GenericResponse> = recipeController.getRecipeById(1L)
-//        assertNotNull(result)
-//        assertInstanceOf(NotFoundException::class.java, result.body)
-    }
 }
